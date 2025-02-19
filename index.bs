@@ -1,0 +1,180 @@
+<pre class='metadata'>
+Title: ODRL Policy Agreement Instantiation
+Shortname: ODRL Instantiation
+Level: 1
+Status: LD
+Editor: Ruben Dedecker, [IDLab - Ghent University](https://knows.idlab.ugent.be), ruben.dedecker@ugent.be
+Abstract: This document defines an approach for instnatitating ODRL policies based on incoming claims modeled as RDF.
+Markup Shorthands: markdown yes 
+Boilerplate: logo no, conformance no, index no
+</pre>
+
+<style>
+p[data-fill-with="logo"] {
+  display: block;
+  float: right;
+  width: 150px;
+  height: 150px;
+  margin: 0.4rem 0 0.2rem .4rem;
+  background-image: url([LOGO])
+}
+table {
+  margin: 25px auto;
+  border-collapse: collapse;
+  border: 1px solid #eee;
+  border-bottom: 2px solid #005A9C;
+}
+table tr:hover {
+  background: #f4f4f4;
+}
+table tr:hover td {
+  color: #555;
+}
+table th, table td {
+  color: #999;
+  border: 1px solid #eee;
+  padding: 12px 12px;
+  border-collapse: collapse;
+}
+table th {
+  background: #005A9C;
+  color: #fff;
+}
+table tbody > tr > th {
+  background: #fff;
+  color: #005A9C;
+}
+table th.last {
+  border-right: none;
+}
+</style>
+
+Introduction {#introduction}
+============================
+The goal of this specification is to define an instantiation algorithm for ODRL that creates
+an agreement based on the combination of an ODRL Request (in combination with additional information)
+and a set of ODRL policies.
+
+
+Requirements {#requirements}
+========================
+
+Given a set of N ODRL policies 
+
+
+The ODRL information model defines the following set of elements:
+* Policy
+  * Set
+  * Agreement
+  * Offer
+* Rule
+  * Permission
+  * Prohibition
+  * Obligation
+  * Duty
+* Action
+* Asset
+* AssetCollection
+* Party
+* PartyCollection
+* Constraint
+  * LogicalConstraint
+  * leftOperand
+  * rightOperand
+  * operator
+
+The concept of Policy composition defines:
+The Policy Rules Composition permits each Rule to extend the cardinality requirements of the ODRL Information Model
+to support a Rule being related to multiple Assets, Parties, and Actions. The purpose is to combine common properties
+(in a single Rule) to express a more compound Policy. The Policy SHOULD then be processed into its normative atomic equivalent.
+
+
+
+Algorithm {#algorithm}
+======================
+
+### Target Matching
+
+Given a set of N ODRL Policies, first the algorithm must know which policies must be evaluated for their requirements.
+As the use-cases for which ODRL are employed vary is the data models and storage mechanisms over which they are applied,
+
+### Permission Matching
+
+The algorithm for instantiating ODRL policies is defined as follows:
+1. Decompose the policy into its atomic rules
+2. As instantiation converts a generic policy expression to a concrete interaction,
+    the policy type MUST be a Set. The resulting instantiation takes 
+
+
+
+
+Examples {#examples}
+====================
+
+
+```turtle
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+PREFIX ex: <http://example.org/>
+
+<http://example.org/alice-HCPX> a odrl:Set ;
+    odrl:uid ex:alice-HCPX ;
+    dcterms:description "Alice allows her health data to be read by HCP X for bariatric care.";
+    odrl:permission <http://example.org/alice-HCPX-permission> .
+
+<http://example.org/alice-HCPX-permission> a odrl:Permission ;
+    odrl:action odrl:read ;
+    odrl:target ex:health-data ;
+    odrl:assigner ex:alice ;
+    odrl:assignee ex:HCPx ;
+    odrl:constraint <http://example.org/alice-HCPX-permission-purpose> .
+
+<http://example.org/alice-HCPX-permission-purpose> a odrl:Constraint ;
+    odrl:leftOperand odrl:purpose ;
+    odrl:operator odrl:eq ;
+    odrl:rightOperand ex:bariatric-care .
+```
+
+
+```turtle
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX dpv: <https://w3id.org/dpv#>
+PREFIX eu-gdpr: <https://w3id.org/dpv/legal/eu/gdpr#>
+PREFIX odrl: <http://www.w3.org/ns/odrl/2/>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+PREFIX ex: <http://example.org/>
+
+<http://example.org/Alice-HCPX-agreement> a odrl:Agreement ;
+    odrl:uid ex:Alice-HCPX-agreement ;
+    dcterms:references <http://example.org/alice-HCPX>, <http://example.org/HCPX-request> ;
+    dcterms:description "Agreement for HCP X to read Alice's health data for bariatric care." ;
+    dpv:hasLegalBasis eu-gdpr:A9-2-a ;
+    odrl:permission <http://example.org/agreement-permission> .
+
+<http://example.org/agreement-permission> a odrl:Permission ;
+    odrl:action odrl:read ;
+    odrl:target ex:health-data ;
+    odrl:assigner ex:alice ;
+    odrl:assignee ex:HCPx ;
+    odrl:constraint <http://example.org/agreement-permission-purpose> .
+
+<http://example.org/agreement-permission-purpose> a odrl:Constraint ;
+    odrl:leftOperand odrl:purpose ; 
+    odrl:operator odrl:eq ;
+    odrl:rightOperand ex:bariatric-care .
+```
+
+
+
+
+
+
+
+<pre class=biblio>
+{
+	
+}
+</pre>
