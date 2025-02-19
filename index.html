@@ -1,7 +1,7 @@
 <!doctype html><html lang="en">
  <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type">
-  <title>ODRL resource policies for Solid</title>
+  <title>ODRL Policy Agreement Instantiation</title>
   <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
 <style data-fill-with="stylesheet">/******************************************************************************
  *                   Style sheet for the W3C specifications                   *
@@ -1488,45 +1488,47 @@ Possible extra rowspan handling
 		}
 	}
 </style>
-  <meta content="Bikeshed version c2797e6ab, updated Thu Jan 30 16:24:26 2025 -0800" name="generator">
+  <meta content="Bikeshed version 47d87adb7, updated Tue Feb 18 17:18:43 2025 -0800" name="generator">
+  <meta content="62cab5d16bb679f44985fd0eac026859a585a42f" name="revision">
   <meta content="dark light" name="color-scheme">
 <style>
 p[data-fill-with="logo"] {
-  display: block;
-  float: right;
-  width: 150px;
-  height: 150px;
-  margin: 0.4rem 0 0.2rem .4rem;
-  background-image: url([LOGO])
+    display: block;
+    float: right;
+    width: 150px;
+    height: 150px;
+    margin: 0.4rem 0 0.2rem .4rem;
+    background-image: url([LOGO])
 }
 table {
-  margin: 25px auto;
-  border-collapse: collapse;
-  border: 1px solid #eee;
-  border-bottom: 2px solid #005A9C;
+    margin: 25px auto;
+    border-collapse: collapse;
+    border: 1px solid #eee;
+    border-bottom: 2px solid #005A9C;
 }
 table tr:hover {
-  background: #f4f4f4;
+    background: #f4f4f4;
 }
 table tr:hover td {
-  color: #555;
+    color: #555;
 }
 table th, table td {
-  color: #999;
-  border: 1px solid #eee;
-  padding: 12px 12px;
-  border-collapse: collapse;
+    color: #999;
+    border: 1px solid #eee;
+    padding: 12px 12px;
+    border-collapse: collapse;
 }
 table th {
-  background: #005A9C;
-  color: #fff;
+    background: #005A9C;
+    color: #fff;
 }
-table tbody > tr > th {
-  background: #fff;
-  color: #005A9C;
+table tbbackground: #fff;
+  ody > tr > th {
+    background: #fff;
+    color: #005A9C;
 }
 table th.last {
-  border-right: none;
+    border-right: none;
 }
 </style>
 <style>/* Boilerplate: style-autolinks */
@@ -1927,12 +1929,135 @@ a.self-link::before            { content: "¶"; }
 .heading > a.self-link::before { content: "§"; }
 dfn > a.self-link::before      { content: "#"; }
 </style>
+<style>/* Boilerplate: style-syntax-highlighting */
+code.highlight { padding: .1em; border-radius: .3em; }
+pre.highlight, pre > code.highlight { display: block; padding: 1em; margin: .5em 0; overflow: auto; border-radius: 0; }
+
+.highlight:not(.idl) { background: rgba(0, 0, 0, .03); }
+c-[a] { color: #990055 } /* Keyword.Declaration */
+c-[b] { color: #990055 } /* Keyword.Type */
+c-[c] { color: #708090 } /* Comment */
+c-[d] { color: #708090 } /* Comment.Multiline */
+c-[e] { color: #0077aa } /* Name.Attribute */
+c-[f] { color: #669900 } /* Name.Tag */
+c-[g] { color: #222222 } /* Name.Variable */
+c-[k] { color: #990055 } /* Keyword */
+c-[l] { color: #000000 } /* Literal */
+c-[m] { color: #000000 } /* Literal.Number */
+c-[n] { color: #0077aa } /* Name */
+c-[o] { color: #999999 } /* Operator */
+c-[p] { color: #999999 } /* Punctuation */
+c-[s] { color: #a67f59 } /* Literal.String */
+c-[t] { color: #a67f59 } /* Literal.String.Single */
+c-[u] { color: #a67f59 } /* Literal.String.Double */
+c-[cp] { color: #708090 } /* Comment.Preproc */
+c-[c1] { color: #708090 } /* Comment.Single */
+c-[cs] { color: #708090 } /* Comment.Special */
+c-[kc] { color: #990055 } /* Keyword.Constant */
+c-[kn] { color: #990055 } /* Keyword.Namespace */
+c-[kp] { color: #990055 } /* Keyword.Pseudo */
+c-[kr] { color: #990055 } /* Keyword.Reserved */
+c-[ld] { color: #000000 } /* Literal.Date */
+c-[nc] { color: #0077aa } /* Name.Class */
+c-[no] { color: #0077aa } /* Name.Constant */
+c-[nd] { color: #0077aa } /* Name.Decorator */
+c-[ni] { color: #0077aa } /* Name.Entity */
+c-[ne] { color: #0077aa } /* Name.Exception */
+c-[nf] { color: #0077aa } /* Name.Function */
+c-[nl] { color: #0077aa } /* Name.Label */
+c-[nn] { color: #0077aa } /* Name.Namespace */
+c-[py] { color: #0077aa } /* Name.Property */
+c-[ow] { color: #999999 } /* Operator.Word */
+c-[mb] { color: #000000 } /* Literal.Number.Bin */
+c-[mf] { color: #000000 } /* Literal.Number.Float */
+c-[mh] { color: #000000 } /* Literal.Number.Hex */
+c-[mi] { color: #000000 } /* Literal.Number.Integer */
+c-[mo] { color: #000000 } /* Literal.Number.Oct */
+c-[sb] { color: #a67f59 } /* Literal.String.Backtick */
+c-[sc] { color: #a67f59 } /* Literal.String.Char */
+c-[sd] { color: #a67f59 } /* Literal.String.Doc */
+c-[se] { color: #a67f59 } /* Literal.String.Escape */
+c-[sh] { color: #a67f59 } /* Literal.String.Heredoc */
+c-[si] { color: #a67f59 } /* Literal.String.Interpol */
+c-[sx] { color: #a67f59 } /* Literal.String.Other */
+c-[sr] { color: #a67f59 } /* Literal.String.Regex */
+c-[ss] { color: #a67f59 } /* Literal.String.Symbol */
+c-[vc] { color: #0077aa } /* Name.Variable.Class */
+c-[vg] { color: #0077aa } /* Name.Variable.Global */
+c-[vi] { color: #0077aa } /* Name.Variable.Instance */
+c-[il] { color: #000000 } /* Literal.Number.Integer.Long */
+
+@media (prefers-color-scheme: dark) {
+    .highlight:not(.idl) { background: rgba(255, 255, 255, .05); }
+
+    c-[a] { color: #d33682 } /* Keyword.Declaration */
+    c-[b] { color: #d33682 } /* Keyword.Type */
+    c-[c] { color: #2aa198 } /* Comment */
+    c-[d] { color: #2aa198 } /* Comment.Multiline */
+    c-[e] { color: #268bd2 } /* Name.Attribute */
+    c-[f] { color: #b58900 } /* Name.Tag */
+    c-[g] { color: #cb4b16 } /* Name.Variable */
+    c-[k] { color: #d33682 } /* Keyword */
+    c-[l] { color: #657b83 } /* Literal */
+    c-[m] { color: #657b83 } /* Literal.Number */
+    c-[n] { color: #268bd2 } /* Name */
+    c-[o] { color: #657b83 } /* Operator */
+    c-[p] { color: #657b83 } /* Punctuation */
+    c-[s] { color: #6c71c4 } /* Literal.String */
+    c-[t] { color: #6c71c4 } /* Literal.String.Single */
+    c-[u] { color: #6c71c4 } /* Literal.String.Double */
+    c-[ch] { color: #2aa198 } /* Comment.Hashbang */
+    c-[cp] { color: #2aa198 } /* Comment.Preproc */
+    c-[cpf] { color: #2aa198 } /* Comment.PreprocFile */
+    c-[c1] { color: #2aa198 } /* Comment.Single */
+    c-[cs] { color: #2aa198 } /* Comment.Special */
+    c-[kc] { color: #d33682 } /* Keyword.Constant */
+    c-[kn] { color: #d33682 } /* Keyword.Namespace */
+    c-[kp] { color: #d33682 } /* Keyword.Pseudo */
+    c-[kr] { color: #d33682 } /* Keyword.Reserved */
+    c-[ld] { color: #657b83 } /* Literal.Date */
+    c-[nc] { color: #268bd2 } /* Name.Class */
+    c-[no] { color: #268bd2 } /* Name.Constant */
+    c-[nd] { color: #268bd2 } /* Name.Decorator */
+    c-[ni] { color: #268bd2 } /* Name.Entity */
+    c-[ne] { color: #268bd2 } /* Name.Exception */
+    c-[nf] { color: #268bd2 } /* Name.Function */
+    c-[nl] { color: #268bd2 } /* Name.Label */
+    c-[nn] { color: #268bd2 } /* Name.Namespace */
+    c-[py] { color: #268bd2 } /* Name.Property */
+    c-[ow] { color: #657b83 } /* Operator.Word */
+    c-[mb] { color: #657b83 } /* Literal.Number.Bin */
+    c-[mf] { color: #657b83 } /* Literal.Number.Float */
+    c-[mh] { color: #657b83 } /* Literal.Number.Hex */
+    c-[mi] { color: #657b83 } /* Literal.Number.Integer */
+    c-[mo] { color: #657b83 } /* Literal.Number.Oct */
+    c-[sa] { color: #6c71c4 } /* Literal.String.Affix */
+    c-[sb] { color: #6c71c4 } /* Literal.String.Backtick */
+    c-[sc] { color: #6c71c4 } /* Literal.String.Char */
+    c-[dl] { color: #6c71c4 } /* Literal.String.Delimiter */
+    c-[sd] { color: #6c71c4 } /* Literal.String.Doc */
+    c-[se] { color: #6c71c4 } /* Literal.String.Escape */
+    c-[sh] { color: #6c71c4 } /* Literal.String.Heredoc */
+    c-[si] { color: #6c71c4 } /* Literal.String.Interpol */
+    c-[sx] { color: #6c71c4 } /* Literal.String.Other */
+    c-[sr] { color: #6c71c4 } /* Literal.String.Regex */
+    c-[ss] { color: #6c71c4 } /* Literal.String.Symbol */
+    c-[fm] { color: #268bd2 } /* Name.Function.Magic */
+    c-[vc] { color: #cb4b16 } /* Name.Variable.Class */
+    c-[vg] { color: #cb4b16 } /* Name.Variable.Global */
+    c-[vi] { color: #cb4b16 } /* Name.Variable.Instance */
+    c-[vm] { color: #cb4b16 } /* Name.Variable.Magic */
+    c-[il] { color: #657b83 } /* Literal.Number.Integer.Long */
+}
+</style>
  <body class="h-entry">
   <div class="head">
-   <h1 class="p-name no-ref" id="title">ODRL resource policies for Solid</h1>
-   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2025-02-03">3 February 2025</time></span></h2>
+   <h1 class="p-name no-ref" id="title">ODRL Policy Agreement Instantiation</h1>
+   <h2 class="no-num no-toc no-ref heading settled" id="profile-and-date"><span class="content">Living Document, <time class="dt-updated" datetime="2025-02-19">19 February 2025</time></span></h2>
    <div data-fill-with="spec-metadata">
     <dl>
+     <dt>Issue Tracking:
+     <dd><a href="#issues-index">Inline In Spec</a>
      <dt class="editor">Editor:
      <dd class="editor p-author h-card vcard"><a class="p-name fn u-email email" href="mailto:ruben.dedecker@ugent.be">Ruben Dedecker</a> (<span class="p-org org">[IDLab - Ghent University](https://knows.idlab.ugent.be)</span>)
     </dl>
@@ -1940,7 +2065,7 @@ dfn > a.self-link::before      { content: "#"; }
    <div data-fill-with="warning"></div>
    <p class="copyright" data-fill-with="copyright"><a href="http://creativecommons.org/publicdomain/zero/1.0/" rel="license"><img alt="CC0" height="15" src="https://licensebuttons.net/p/zero/1.0/80x15.png" width="80"></a> To the extent possible under law, the editors have waived all copyright
 and related or neighboring rights to this work.
-In addition, as of 3 February 2025,
+In addition, as of 19 February 2025,
 the editors have made this specification available under the <a href="https://www.openwebfoundation.org/the-agreements/the-owf-1-0-agreements-granted-claims/owfa-1-0" rel="license">Open Web Foundation Agreement Version 1.0</a>,
 which is available at https://www.openwebfoundation.org/the-agreements/the-owf-1-0-agreements-granted-claims/owfa-1-0.
 Parts of this work may be from another specification document.  If so, those parts are instead covered by the license of that specification document. </p>
@@ -1948,18 +2073,342 @@ Parts of this work may be from another specification document.  If so, those par
   </div>
   <div class="p-summary" data-fill-with="abstract">
    <h2 class="no-num no-toc no-ref heading settled" id="abstract"><span class="content">Abstract</span></h2>
-   <p>This document defines an approach for managing Solid resource access and usage using ODRL</p>
+   <p>This document defines an approach for instnatitating ODRL policies based on incoming claims modeled as RDF.</p>
   </div>
   <div data-fill-with="at-risk"></div>
   <nav data-fill-with="table-of-contents" id="toc">
    <h2 class="no-num no-toc no-ref" id="contents">Table of Contents</h2>
    <ol class="toc" role="directory">
-    <li><a href="#Introduction"><span class="secno">1</span> <span class="content">Introduction</span></a>
+    <li>
+     <a href="#introduction"><span class="secno">1</span> <span class="content">Introduction</span></a>
+     <ol class="toc">
+      <li><a href="#composition"><span class="secno">1.1</span> <span class="content">Rule composition</span></a>
+     </ol>
+    <li><a href="#requirements"><span class="secno">2</span> <span class="content">Requirements</span></a>
+    <li>
+     <a href="#algorithm"><span class="secno">3</span> <span class="content">Algorithm</span></a>
+     <ol class="toc">
+      <li><a href="#input-validation"><span class="secno">3.1</span> <span class="content">Input Validation</span></a>
+      <li><a href="#converting-to-atomic-policy-composition"><span class="secno">3.2</span> <span class="content">Converting to atomic policy composition</span></a>
+      <li><a href="#target-matching"><span class="secno">3.3</span> <span class="content">Target Matching</span></a>
+      <li><a href="#policy-evaluation-optional"><span class="secno">3.4</span> <span class="content">Policy Evaluation (optional)</span></a>
+      <li>
+       <a href="#instantiation-algorithm"><span class="secno">3.5</span> <span class="content">Instantiation algorithm</span></a>
+       <ol class="toc">
+        <li><a href="#creating-the-new-agreement"><span class="secno">3.5.1</span> <span class="content">Creating the new agreement</span></a>
+        <li><a href="#add-the-references"><span class="secno">3.5.2</span> <span class="content">Add the references</span></a>
+        <li><a href="#iterate-over-all-combinations-of-rule-type-rule-action-and-rule-target-in-the-policy-set"><span class="secno">3.5.3</span> <span class="content">Iterate over all combinations of rule type, rule action and rule target in the policy set</span></a>
+        <li><a href="#instantiate-assigner-and-assignee"><span class="secno">3.5.4</span> <span class="content">Instantiate assigner and assignee</span></a>
+        <li>
+         <a href="#instantiate-constraints"><span class="secno">3.5.5</span> <span class="content">Instantiate constraints</span></a>
+         <ol class="toc">
+          <li><a href="#the-match-function"><span class="secno">3.5.5.1</span> <span class="content">The <code>match</code> function</span></a>
+         </ol>
+       </ol>
+      <li><a href="#returning-the-instantiated-agreement"><span class="secno">3.6</span> <span class="content">Returning the instantiated agreement</span></a>
+     </ol>
+    <li><a href="#examples"><span class="secno">4</span> <span class="content">Examples</span></a>
+    <li><a href="#issues-index"><span class="secno"></span> <span class="content">Issues Index</span></a>
    </ol>
   </nav>
   <main>
-   <p>Feedback welcome: <a href="mailto:value-adding-networks@googlegroups.com">value-adding-networks@googlegroups.com</a>.</p>
-   <h2 class="heading settled" data-level="1" id="Introduction"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#Introduction"></a></h2>
+   <h2 class="heading settled" data-level="1" id="introduction"><span class="secno">1. </span><span class="content">Introduction</span><a class="self-link" href="#introduction"></a></h2>
+    Policy instantiation defines the process of creating an agreement based on:
+(i) a set of ODRL policies, (ii) an ODRL Request and and  
+(iii) additional information defined as the state of the world (SOTW)
+at the time of the evaluation.
+The resulting ODRL Agreement of the execution of the instantiation
+algorithm defines the contract defined by evaluating the ODRL request
+over the available policies with regards to the SOTW. 
+   <p>As the ODRL specification defines a generic policy language,
+with many extension points for actions, constraints, parties,
+targets and other elements, it is important for the instantiation
+algorithm to be equally extensible to support these extensions.</p>
+   <h3 class="heading settled" data-level="1.1" id="composition"><span class="secno">1.1. </span><span class="content">Rule composition</span><a class="self-link" href="#composition"></a></h3>
+   <p class="note" role="note"><span class="marker">Note:</span> The ODRL Specification contains a section on <a href="https://www.w3.org/TR/odrl-model/#composition">Rule Composition</a>,
+that defines the way ODRL policies can be converted into their atomic
+counterparts for evaluation. There does not seem to be clarity on the
+exact wat that a prohibition rule over two actions should be interpreted, 
+which can be done either as the negation of a conjunction of actions, or 
+as a conjunction of individually negated actions. In this specification,
+we use the latter interpretation of a policy expressing a prohibition rule
+for the actions of Drinking and Driving to be equivalent to the atomic 
+representation of a prohibition for the action of drinking, 
+(NOT (drinking)) AND (NOT (driving)). <strong>To prevent issues, we throw an error when a prohibition is passed with 
+more than a single action. If more than one action needs to be prohibited,
+these must be passed as separate prohibitions. This means you cannot
+express the policy prohibiting drinking and driving at the same time, 
+you can only enforce not drinking and not driving. Composite policies
+can only be modeled as constraints on atomic prohibitions.</strong></p>
+   <h2 class="heading settled" data-level="2" id="requirements"><span class="secno">2. </span><span class="content">Requirements</span><a class="self-link" href="#requirements"></a></h2>
+    In this section, we iterate the requirements for the instantiation algorithm. 
+   <p>The core ODRL Instantiation Algorithn MUST at least support the inclusion of
+all core ODRL elements as defined in the <a href="https://www.w3.org/TR/odrl-model/#infoModel">ODRL Information Model</a>.
+This includes the following classes:</p>
+   <ul>
+    <li data-md>
+     <p><strong>Policy</strong> - A non-empty group of Permissions (via the permission property) and/or Prohibitions (via the prohibition property) and/or Duties (via the obligation property). The Policy class is the parent class to the Set, Offer, and Agreement subclasses:</p>
+     <ul>
+      <li data-md>
+       <p><strong>Set</strong> - a subclass of Policy that supports expressing generic Rules.</p>
+      <li data-md>
+       <p><strong>Offer</strong> - a subclass of Policy that supports offerings of Rules from assigner Parties.</p>
+      <li data-md>
+       <p><strong>Agreement</strong> - a subclass of Policy that supports granting of Rules from assigner to assignee Parties.</p>
+     </ul>
+    <li data-md>
+     <p><strong>Asset</strong> - A resource or a collection of resources that are the subject of a Rule (via the abstract relation property). The Asset class is the parent class to:</p>
+     <ul>
+      <li data-md>
+       <p><strong>AssetCollection</strong> - a subclass of Asset that identifies a collection of resources.</p>
+     </ul>
+    <li data-md>
+     <p><strong>Party</strong> - An entity or a collection of entities that undertake Roles in a Rule (via the abstract function property). The Party class is the parent class to:</p>
+     <ul>
+      <li data-md>
+       <p><strong>PartyCollection</strong> - a subclass of Party that identifies a collection of entities.</p>
+     </ul>
+    <li data-md>
+     <p><strong>Action</strong> - An operation on an Asset.</p>
+    <li data-md>
+     <p><strong>Rule</strong> - An abstract concept that represents the common characteristics of Permissions, Prohibitions, and Duties.</p>
+     <ul>
+      <li data-md>
+       <p><strong>Permission</strong> - The ability to exercise an Action over an Asset. The Permission MAY also have the duty property that expresses an agreed Action that MUST be exercised (as a pre-condition to be granted the Permission).</p>
+      <li data-md>
+       <p><strong>Prohibition</strong> - The inability to exercise an Action over an Asset.</p>
+      <li data-md>
+       <p><strong>Duty</strong> - The obligation to exercise an Action.</p>
+     </ul>
+    <li data-md>
+     <p><strong>Constraint/LogicalConstraint</strong> - A boolean/logical expression that refines an Action and Party/Asset collection or the conditions applicable to a Rule.</p>
+   </ul>
+   <h2 class="heading settled" data-level="3" id="algorithm"><span class="secno">3. </span><span class="content">Algorithm</span><a class="self-link" href="#algorithm"></a></h2>
+   <p>The instantiation algorithm distills an ODRL Agreement that defines
+the Agreement reached based on (i) an ODRL Request, (ii) a set of ODRL Policies
+and (iii) a state of the world.</p>
+   <p>In this secion, we define the algorithm to distill the resulting ODRL Agreement from these parameters.</p>
+   <p class="note" role="note"><span class="marker">Note:</span> In <a href="#composition">§ 1.1 Rule composition</a>, we define the problem with composite policies containing prohibition rules in ODRL.
+For this reason, policies containing prohibition rules with more than one action will be rejected by the algorithm.</p>
+   <h3 class="heading settled" data-level="3.1" id="input-validation"><span class="secno">3.1. </span><span class="content">Input Validation</span><a class="self-link" href="#input-validation"></a></h3>
+    The first step is the validation of the input parameters. 
+   <p>For (i), the request must be validated to be of type <code>odrl:Request</code>,
+and may be validated against a shacl shape that verifies 
+the presence of the minimal subset of required properties.</p>
+   <p>For (ii), each policy of the set of policies is evaluated to
+be of either type <code>odrl:Set</code> or type <code>odrl:Policy</code>. Policies
+of type <code>odrl:Offer</code> and <code>odrl:Request</code> must be rejected.
+Additionally, the policies can be validated agains a known
+shape to validate the presence of required properties.</p>
+   <p>For (iii), the SOTW is expected to be trusted system input,
+but may be validated against a known shape to check for missing 
+properties.</p>
+   <h3 class="heading settled" data-level="3.2" id="converting-to-atomic-policy-composition"><span class="secno">3.2. </span><span class="content">Converting to atomic policy composition</span><a class="self-link" href="#converting-to-atomic-policy-composition"></a></h3>
+   <p>Following <a href="https://www.w3.org/TR/odrl-model/#composition">Rule Composition</a>,
+we convert both (i) the ODRL Request parameter and (ii) the policies of the policy
+set parameter of the algorithm to their atomic form. This means that for 
+each combination of rule type, action type and target value, 
+the rule converted into a unique set of rules for each combination
+of rule type, action type and target value.</p>
+   <p>For the resulting set of policies, for each combination of rule, action and
+target, if multiple combinations of rule, action and target are found that are 
+identical, these are merged together as a single rule, and all constraints, 
+refinements and duties defined on these policies are merged.</p>
+   <p>If the request was atomized into multiple different requests,
+the algorithm MUST be repeated for each atomized request,
+and output a separate instantiation for each separate atomized request.</p>
+   <p class="issue" id="issue-e25c8a13"><a class="self-link" href="#issue-e25c8a13"></a> Verify the above algorithm with a concrete proof!</p>
+   <p class="note" role="note"><span class="marker">Note:</span> This section makes the assumption that policy composition
+of odrl:prohibitions with multiple actions is impossible. 
+If this is not the case, this part of the algorithm needs to be revised!</p>
+   <h3 class="heading settled" data-level="3.3" id="target-matching"><span class="secno">3.3. </span><span class="content">Target Matching</span><a class="self-link" href="#target-matching"></a></h3>
+   <p>The next step is remove all policy rules that are not relevant for the
+request. As the requests are atomized in the step above, 
+and for each different request a separate isntantiation is executed, 
+any remaining policy rules will have a single target value, a single action
+value, but may contain multiple rule types (e.g. a permission and
+obligation targeting the same action on the same rule, under
+different conditions). Resulting policies that are left without rules
+should be disregarded similarly.</p>
+   <p class="note" role="note"><span class="marker">Note:</span> In this step, we make the assumption that the ODRL Request cannot target a subset
+of a target defined by any of the policies in the input. It this were to be the case 
+(for example when targeting a virtual file system), additional constraints need to be
+in place to decide if a subset of a policy target is defined as the request target.</p>
+   <h3 class="heading settled" data-level="3.4" id="policy-evaluation-optional"><span class="secno">3.4. </span><span class="content">Policy Evaluation (optional)</span><a class="self-link" href="#policy-evaluation-optional"></a></h3>
+   <p>As an optional step, the request can be validated against the policies and the SOTW to
+check both the validity of the request and ensuring all required information for the
+instantiation procedure is present. If the input is trusted or pre-validated, this step can be skipped.</p>
+   <p>In case the policy evaluation succeeds for only part of the set of policies,
+the implementation can decide to either abort the execution (require full matching), 
+or to remove the policy rules that did not validate (allow partial matching).</p>
+   <p class="note" role="note"><span class="marker">Note:</span> when skipping policy evaluation, the execution flow might need to dynamically
+abort the instantiation algorithm or remove incomplete rules when trying to instantiate
+their properties and constraints with concrete values.</p>
+   <h3 class="heading settled" data-level="3.5" id="instantiation-algorithm"><span class="secno">3.5. </span><span class="content">Instantiation algorithm</span><a class="self-link" href="#instantiation-algorithm"></a></h3>
+    Now that all pre-processing is done, the insantiation algorithm can be run: 
+   <h4 class="heading settled" data-level="3.5.1" id="creating-the-new-agreement"><span class="secno">3.5.1. </span><span class="content">Creating the new agreement</span><a class="self-link" href="#creating-the-new-agreement"></a></h4>
+    Create a new entity of type <code>odrl:Agreement</code> that serves as the basis of the instantiated agreement. 
+   <h4 class="heading settled" data-level="3.5.2" id="add-the-references"><span class="secno">3.5.2. </span><span class="content">Add the references</span><a class="self-link" href="#add-the-references"></a></h4>
+   <p>The instantiated agreement SHOULD reference the request and the policies that it is derived from.
+In privacy-sensitive cases, this step can be disregarded.</p>
+   <p>This is done by adding the <code>dcterms:references</code> property to the instantiated agreement with the identifiers
+of the request and all policies that are relevant at this point of the algorithm execution.</p>
+   <h4 class="heading settled" data-level="3.5.3" id="iterate-over-all-combinations-of-rule-type-rule-action-and-rule-target-in-the-policy-set"><span class="secno">3.5.3. </span><span class="content">Iterate over all combinations of rule type, rule action and rule target in the policy set</span><a class="self-link" href="#iterate-over-all-combinations-of-rule-type-rule-action-and-rule-target-in-the-policy-set"></a></h4>
+   <p>As discussed in <a href="#composition">§ 1.1 Rule composition</a>, by not allowing prohibition rules
+consisting of multiple actions, all resulting policy rules can differ 
+in type, but are identical in their action and target values.</p>
+   <p class="note" role="note"><span class="marker">Note:</span> When stating the same target and same action, this includes refinements on this target
+and action value. In case of differing refinements, this does not hold.</p>
+   <p class="issue" id="issue-63630474"><a class="self-link" href="#issue-63630474"></a> Include refinements explicitly in the algorithm</p>
+   <p>For all remaining policies, iterate over the set of rules <code>S</code> that are identical in their combination of rule type, 
+rule action and rule target.</p>
+   <p>Instantiate a new rule <code>R</code> for this combination of rule type,
+action and target on the above agreement.</p>
+   <h4 class="heading settled" data-level="3.5.4" id="instantiate-assigner-and-assignee"><span class="secno">3.5.4. </span><span class="content">Instantiate assigner and assignee</span><a class="self-link" href="#instantiate-assigner-and-assignee"></a></h4>
+   <p>For the rule <code>R</code> defind in the step above, the <code>odrl:assigner</code> and <code>odrl:assignee</code> properties must be defined.
+The <code>odrl:assignee</code> value MUST be defined on the ODRL Request parameter passed to the algorithm. 
+This value must be added to the insantiated rule from the previous step.</p>
+   <p>For the <code>odrl:assigner</code> value, this information may be defined in the SOTW parameter passed to the
+algorithm, be hardcoded or retrieved out of bounds. It SHOULD be defined on the instantiated rule
+from the previous step.</p>
+   <h4 class="heading settled" data-level="3.5.5" id="instantiate-constraints"><span class="secno">3.5.5. </span><span class="content">Instantiate constraints</span><a class="self-link" href="#instantiate-constraints"></a></h4>
+   <p>Finally, for the set <code>S</code> of policy rules that share the combination of
+type, action and target to the instantiated rule <code>R</code>, 
+iterate over the set of all unique constraints defined for the rules of the set <code>S</code>.</p>
+   <p>Iterating over each unique constraint of each rule in <code>S</code></p>
+   <p>If an <code>odrl:subject</code> is found in the constraint,
+the combined graphs of both the ODRL Request parameter 
+and the SOTW parameter MUST be evaluated using a <code>match</code> function passing the constraint <code>odrl:subject</code>, <code>leftOperand</code>, <code>operator</code> and <code>rightOperand</code> values.</p>
+   <p>If the subject of the constraint can be entailed from
+the <code>odrl:leftOperand</code> value, it is up to the implementation
+on how to handle this, but the documentation should reflect 
+the capabilities of the implementation to handle these cases.</p>
+   <p>The default interpretation of a constraint is that it is
+directly targeting the policy rule on which it is defined,
+and the <code>match</code> function must be called with the <strong>rule of the ODRL Request parameter</strong>, and evaluated over 
+the combined knowledge graph of ODRL Request and SOTW parameters.</p>
+   <p class="note" role="note"><span class="marker">Note:</span> The <code>match</code> function is identical to how the ODRL Evaluation
+engine processes these constraints. This should be aligned with Wout!</p>
+   <h5 class="heading settled" data-level="3.5.5.1" id="the-match-function"><span class="secno">3.5.5.1. </span><span class="content">The <code>match</code> function</span><a class="self-link" href="#the-match-function"></a></h5>
+   <p>The <code>match</code> function takes <code>subject</code>, <code>leftOperand</code>, <code>operator</code> and <code>rightOperand</code> parameters, as well as the <code>Request</code> and <code>SOTW</code>.</p>
+   <p>(i) For each constraint, the subject is evaluated.
+If the subject identifier is of the rule defined in the <code>Request</code>, 
+the function checks if a constraint is defined on this
+request that matches the provided function parameters.</p>
+   <p>If this is not the case, the <code>subject</code>, <code>leftOperand</code>, <code>operator</code> and <code>rightOperand</code> parameters are converted
+into a SPARQL query of the form</p>
+<pre class="language-sparql highlight"><c- k>construct</c-> <c- p>{</c->
+    <c- nl>&lt;subject></c-> <c- nl>&lt;leftoperand></c-> <c- g>?value</c-><c- p>.</c->
+<c- p>}</c-> <c- k>where</c-> <c- p>{</c->
+    <c- nl>&lt;subject></c-> <c- nl>&lt;leftoperand></c-> <c- g>?value</c-><c- p>.</c->
+    <c- k>FILTER</c-> <c- p>(</c-><c- g>?value</c-> <c- nl>&lt;mappedOperator></c-> <c- nl>&lt;rightOperand></c-><c- p>).</c->
+<c- p>}</c->
+</pre>
+   <p>with <code>mappedOperator</code> being the SPARQL operator that is
+identical to the enforced operator in the constraint.</p>
+   <p class="note" role="note"><span class="marker">Note:</span> This <code>match</code> function is an extension point for the
+processing of custom constraints and mappings towards SPARQL filters.</p>
+   <h3 class="heading settled" data-level="3.6" id="returning-the-instantiated-agreement"><span class="secno">3.6. </span><span class="content">Returning the instantiated agreement</span><a class="self-link" href="#returning-the-instantiated-agreement"></a></h3>
+   <p>After iterating over all rule combinations,
+the instantiated agreement is returned by the algorithm.</p>
+   <h2 class="heading settled" data-level="4" id="examples"><span class="secno">4. </span><span class="content">Examples</span><a class="self-link" href="#examples"></a></h2>
+   <p class="issue" id="issue-c1221f59"><a class="self-link" href="#issue-c1221f59"></a> How should we define the legal basis requirement in the policy if we do not want to enforce a specific requirement?</p>
+   <p>The ODRL Policy parameter</p>
+<pre class="language-text/turtle highlight">PREFIX dcterms: &lt;http://purl.org/dc/terms/>
+PREFIX odrl: &lt;http://www.w3.org/ns/odrl/2/>
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
+
+PREFIX ex: &lt;http://example.org/>
+
+&lt;http://example.org/alice-HCPX> a odrl:Set ;
+    odrl:uid ex:alice-HCPX ;
+    dcterms:description "Alice allows her health data to be read by HCP X for bariatric care.";
+    odrl:permission &lt;http://example.org/alice-HCPX-permission> .
+
+&lt;http://example.org/alice-HCPX-permission> a odrl:Permission ;
+    odrl:action odrl:read ;
+    odrl:target ex:health-data ;
+    odrl:assigner ex:alice ;
+    odrl:assignee ex:HCPx ;
+    odrl:constraint &lt;http://example.org/alice-HCPX-permission-purpose>, 
+        &lt;http://example.org/alice-HCPX-permission-legal-basis> .
+
+&lt;http://example.org/alice-HCPX-permission-purpose> a odrl:Constraint ;
+    odrl:leftOperand odrl:purpose ;
+    odrl:operator odrl:eq ;
+    odrl:rightOperand ex:bariatric-care .
+</pre>
+   <p>The ODRL Request parameter</p>
+<pre class="language-text/turtle highlight">PREFIX dcterms: &lt;http://purl.org/dc/terms/>
+PREFIX eu-gdpr: &lt;https://w3id.org/dpv/legal/eu/gdpr#>
+PREFIX oac: &lt;https://w3id.org/oac#>
+PREFIX odrl: &lt;http://www.w3.org/ns/odrl/2/>
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
+
+PREFIX ex: &lt;http://example.org/>
+
+&lt;http://example.org/HCPX-request> a odrl:Request ;
+    odrl:uid ex:HCPX-request ;
+    odrl:profile oac: ;
+    dcterms:description "HCP X requests to read Alice's health data for bariatric care.";
+    odrl:permission &lt;http://example.org/HCPX-request-permission> .
+
+&lt;http://example.org/HCPX-request-permission> a odrl:Permission ;
+    odrl:action odrl:read ;
+    odrl:target ex:health-data ;
+    odrl:assigner ex:alice ;
+    odrl:assignee ex:HCPx ;
+    odrl:constraint &lt;http://example.org/HCPX-request-permission-purpose>,
+        &lt;http://example.org/HCPX-request-permission-lb> .
+
+&lt;http://example.org/HCPX-request-permission-purpose> a odrl:Constraint ;
+    odrl:leftOperand odrl:purpose ; # can also be oac:Purpose, to conform with OAC profile
+    odrl:operator odrl:eq ;
+    odrl:rightOperand ex:bariatric-care .
+
+&lt;http://example.org/HCPX-request-permission-lb> a odrl:Constraint ;
+    odrl:leftOperand oac:LegalBasis ;
+    odrl:operator odrl:eq ;
+    odrl:rightOperand eu-gdpr:A9-2-a .
+</pre>
+   <p>The State of the World input parameter</p>
+<pre class="language-text/turtle highlight">PREFIX ex: &lt;http://example.org/>
+
+ex:systemTime odrl:eq "2025-02-19T17:54:24.531Z"^^xsd:dateTime.
+</pre>
+   <p>The Output Agreement</p>
+<pre class="language-text/turtle highlight">PREFIX dcterms: &lt;http://purl.org/dc/terms/>
+PREFIX dpv: &lt;https://w3id.org/dpv#>
+PREFIX eu-gdpr: &lt;https://w3id.org/dpv/legal/eu/gdpr#>
+PREFIX odrl: &lt;http://www.w3.org/ns/odrl/2/>
+PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#>
+
+PREFIX ex: &lt;http://example.org/>
+
+&lt;http://example.org/Alice-HCPX-agreement> a odrl:Agreement ;
+    odrl:uid ex:Alice-HCPX-agreement ;
+    dcterms:references &lt;http://example.org/alice-HCPX>, &lt;http://example.org/HCPX-request> ;
+    dcterms:description "Agreement for HCP X to read Alice's health data for bariatric care." ;
+    odrl:permission &lt;http://example.org/agreement-permission> .
+
+&lt;http://example.org/agreement-permission> a odrl:Permission ;
+    odrl:action odrl:read ;
+    odrl:target ex:health-data ;
+    odrl:assigner ex:alice ;
+    odrl:assignee ex:HCPx ;
+    dpv:hasLegalBasis eu-gdpr:A9-2-a ;
+    odrl:constraint &lt;urn:constraint:purpose>, &lt;urn:constraint:legalBasis> .
+
+&lt;urn:constraint:purpose> a odrl:Constraint ;
+    odrl:leftOperand odrl:purpose ; 
+    odrl:operator odrl:eq ;
+    odrl:rightOperand ex:bariatric-care .
+
+&lt;urn:constraint:legalBasis> a odrl:Constraint ;
+    odrl:leftOperand dpv:hasLegalBasis ;
+    odrl:operator odrl:eq ;
+    odrl:rightOperand ex:bariatric-care .
+</pre>
   </main>
 <script>
 (function() {
@@ -2090,3 +2539,9 @@ Parts of this work may be from another specification document.  If so, those par
 
 })();
 </script>
+  <h2 class="no-num no-ref heading settled" id="issues-index"><span class="content">Issues Index</span><a class="self-link" href="#issues-index"></a></h2>
+  <div style="counter-reset:issue">
+   <div class="issue"> Verify the above algorithm with a concrete proof! <a class="issue-return" href="#issue-e25c8a13" title="Jump to section">↵</a></div>
+   <div class="issue"> Include refinements explicitly in the algorithm <a class="issue-return" href="#issue-63630474" title="Jump to section">↵</a></div>
+   <div class="issue"> How should we define the legal basis requirement in the policy if we do not want to enforce a specific requirement? <a class="issue-return" href="#issue-c1221f59" title="Jump to section">↵</a></div>
+  </div>
