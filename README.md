@@ -8,3 +8,5 @@ of the world modeled as RDF.
 The envisioned application is the automated generation of Agreements
 by policy systems as the basis of generating automated contracts of
 data exchanged based on singing these agreements between parties.
+
+### TODO: look at https://www.w3.org/TR/odrl-model/#metadata to suggest metadata to add when instantiating
